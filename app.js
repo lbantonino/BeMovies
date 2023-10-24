@@ -30,3 +30,46 @@ var swiper = new Swiper(".mySwiper", {
       },
       // mousewheel: true,
   });
+
+// Variables
+
+let popup = document.querySelector(".popup");
+let crossDiv = document.querySelector(".cross");
+let cross = crossDiv.querySelector("img");
+
+// Functions
+
+let loginCheck = () => {
+  let username = document.querySelector("#username");
+  let password = document.querySelector("#password");
+  let rememberCheckbox = document.querySelector("#remember");
+  let menu = document.querySelector(".menu");
+  /* let openSignIn = menu.childElement[5].children; */
+  
+  
+  
+if (username.value.trim()) {
+  let info = {
+    Username: username.value,
+    Password: password.value,
+    Remember: rememberCheckbox.checked,
+  };
+  console.log(info);
+  username.value = "";
+  password.value = "";
+  rememberCheckbox.checked = false;
+}
+  
+}
+
+// Actions
+
+document.addEventListener("click", (e) => {
+  if (e.target === cross) {
+    popup.style.display = "none"
+  } else if (e.target.matches(".btn-login")) {
+    loginCheck()
+  } /* else if (e.target.matches("")){
+
+  } */
+})
