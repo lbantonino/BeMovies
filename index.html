@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeMovies</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- header / logo et nav bar-->
+    <header id="header">
+        <div class="container">
+            <nav>
+            <div class="logo">
+                <h1><a href="#"><span>BE</span>MOVIES</a></h1>
+            </div>
+                <!-- Menu hamburger (responsive)-->
+                <div class="hamburger">&#9776</div>
+                <ul class="menu">
+                    <li><a href="#search-id">SEARCH</a></li>
+                    <li><a href="#latest-id">LATEST</a></li>
+                    <li><a href="#genres-id">GENRES</a></li>
+                    <li><a href="#register-id">REGISTER</a></li>
+                    <li><a href="#signin-id">SIGN IN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- section pour search (form)-->
+        <section class="container section-search" id="search-id">
+            <form action="">
+                <input type="text" name="search" id="search" placeholder="movie, category, ...">
+                <button class="btn-search"><img src="/images/fleche.png" alt="" class="img-fleche"></button>
+            </form>
+        </section>
+
+        <!-- section pour les films lié à la recherche (dans app.js (ligne 1) -> mySwiper1)-->
+        <section class="container section-results-movies">
+            <h2 class="text-result-search">Results for “godfather”</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="images/films-essais/Rectangle 2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 3.png" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 5.png" alt=""></div> 
+                    <div class="swiper-slide">Slide 5</div>
+                    <div class="swiper-slide">Slide 6</div>
+                    <div class="swiper-slide">Slide 7</div>
+                    <div class="swiper-slide">Slide 8</div>
+                    <div class="swiper-slide">Slide 9</div>
+                </div>
+            </div>
+                <div class="fleche-swiper">
+                    <div class="button-prev"><img src="images/fleche-swipper-prev.png" alt=""></div>
+                    <div class="button-next"><img src="/images/fleche swiper-next.png" alt=""></div>
+                </div>
+        </section>
+
+        <!--section lié à aux latest releases (dans app.js (ligne 11) -> mySwiper1)-->
+        <section class="container section-latest-releases" id="latest-id">
+            <h2 class="text-latest-releases">Latest releases</h2>
+            <div class="swiper mySwiper1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 6.png" alt=""></div>
+                    <div class="swiper-slide"><img src="images/films-essais/Rectangle 7.png" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 8.png" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 9.png" alt=""></div> 
+                    <div class="swiper-slide">Slide 5</div>
+                    <div class="swiper-slide">Slide 6</div>
+                    <div class="swiper-slide">Slide 7</div>
+                    <div class="swiper-slide">Slide 8</div>
+                    <div class="swiper-slide">Slide 9</div>
+                </div>
+            </div>
+                <div class="fleche-swiper1">
+                    <div class="button-prev1"><img src="images/fleche-swipper-prev.png" alt=""></div>
+                    <div class="button-next1"><img src="/images/fleche swiper-next.png" alt=""></div>
+                </div>
+        </section>
+
+        <!--section lié à au Movies by genre  (dans app.js (ligne ??) -> mySwiper2)-->
+        <section class="container section-movies-genre" id="genres-id">
+            <div class="category">
+                <h2 class="moviesbygenre">Movies by genre</h2>
+                <ul class="genre">
+                    <li>Comedy</li>
+                    <li>Drama</li>
+                    <li>Action</li>
+                    <li>Romance</li>
+                    <li>Fantasy</li>
+                    <li>Animation</li>
+                </ul>
+                <div class="line"></div>
+            </div>
+            <h2 class="text-genre">Comedy</h2>
+            <div class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle10.png" alt=""></div>
+                    <div class="swiper-slide"><img src="images/films-essais/Rectangle11.png" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle12.png" alt=""></div>
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 8.png" alt=""></div> 
+                    <div class="swiper-slide">Slide 5</div>
+                    <div class="swiper-slide">Slide 6</div>
+                    <div class="swiper-slide">Slide 7</div>
+                    <div class="swiper-slide">Slide 8</div>
+                    <div class="swiper-slide">Slide 9</div>
+                </div>
+            </div>
+            <div class="fleche-swiper2">
+                <div class="button-prev2"><img src="images/fleche-swipper-prev.png" alt=""></div>
+                <div class="button-next2"><img src="/images/fleche swiper-next.png" alt=""></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+                <nav class="footer-nav">
+                <div class="logo">
+                    <h1><a href="#header"><span>BE</span>MOVIES</a></h1>
+                </div>
+                <ul class="footer-menu">
+                    <li><a href="#search-id">SEARCH</a></li>
+                    <li><a href="#latest-id">LATEST</a></li>
+                    <li><a href="#genres-id">GENRES</a></li>
+                    <li><a href="#register-id">REGISTER</a></li>
+                    <li><a href="#signin-id">SIGN IN</a></li>
+                </ul>
+                <h3 class="copyright">@2023 - All rights reserved</h3>
+                </nav>
+        </div>
+    </footer>
+    <!-- <template> -->
+    <div class="popup">
+        <div class="popup-register-login">
+            <div class="contenu-popup">
+                <div class="cross"><img src="/images/POPUP REGISTER/Group 9.svg" alt=""></div>
+                <div class="signup"><h2>SIGNUP</h2></div>
+                <div class="login"><h2>LOGIN</h2></div>
+                <form action="" class="form-login">
+                    <input type="text" name="username" id="username" placeholder="Username">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    <div class="remember">
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember" class="remember-me">Remember me</label>
+                    </div>
+                </form>
+                <div class="btn-forgot">
+                <button class="btn-login">LOGIN</button>
+                <p class="forgot">I forgot my password</p>
+                <p class="new-memeber">Not a member yer ? Sign up</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </template> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
