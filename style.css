@@ -554,7 +554,7 @@ footer {
 }
 
 
-/* ----------Template / Pop Up login--------*/
+/* ----------Template / Pop Up Register--------*/
 .popup {
     position: fixed;
     z-index: 2;
@@ -566,7 +566,7 @@ footer {
     justify-content: center;
     background-color: rgba(254, 79, 79, 0.719);
 }
-.popup-login{
+.popup-register{
     top: 80px;
     left: 515px;
     z-index: 3;
@@ -575,7 +575,7 @@ footer {
     height: 610px;
     width: 410px;
 }
-.contenu-popup{
+.contenu-popup-register{
     position: relative;
     
 }
@@ -600,8 +600,8 @@ footer {
 }
 .login {
     position: absolute;
-    top: 61.5px;
-    right: 0;
+    top: 160px;
+  right: 388px;
     
 }
 .login h2 {
@@ -618,11 +618,12 @@ footer {
 .form-login{
     position: relative;
     margin-top: 55px;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center; 
     flex-direction: column;
     margin-bottom: 83px;
+    left: 61px;
 }
 #username {
     width: 288px;
@@ -676,8 +677,6 @@ footer {
     padding-left: 20px;
     margin-bottom: 25px;
 }
-
-
 .btn-register {
     left: 61px;
     position: absolute;
@@ -687,14 +686,16 @@ footer {
     border: none;
     border-radius: 8px;
     color: white;
+    top: 465px;
 }
+
 .btn-register:hover{
     background-color: #ff3333;
     cursor: pointer;
 }
 
 
-/* ----------Template / Pop Up Register--------*/
+/* ----------Template / Pop Up Login--------*/
 .popup {
     position: fixed;
     z-index: 2;
@@ -706,7 +707,7 @@ footer {
     justify-content: center;
     background-color: rgba(254, 79, 79, 0.719);
 }
-.popup-register{
+.popup-login{
     top: 80px;
     left: 515px;
     z-index: 3;
@@ -755,16 +756,16 @@ footer {
     border-radius: 0px 8px 8px 0px;
     border: 1px solid #FFF;
 }
-.form-login{
+.form-login-register{
     position: relative;
     margin-top: 55px;
-    display: flex;
+    left: 61px;
     align-items: center;
     justify-content: center; 
     flex-direction: column;
     margin-bottom: 30px;
 }
-#username {
+.form-login #username {
     width: 288px;
     height: 44px;
     font-size: 16px;
@@ -777,7 +778,7 @@ footer {
     padding-left: 20px;
     margin-bottom: 25px;
 }
-#password {
+.form-login #password {
     width: 288px;
     height: 44px;
     font-size: 16px;
@@ -792,7 +793,7 @@ footer {
 }
 .remember{
     position: absolute;
-    left: 61px;
+    left: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -817,6 +818,7 @@ footer {
 }
 .btn-login {
     left: 61px;
+    top: 75px;
     position: absolute;
     width: 288px;
     height: 50px;
@@ -831,7 +833,7 @@ footer {
 }
 .forgot{
     position: absolute;
-    top: 74px;
+    top: 150px;
     left: 61px;
     font-size: 16px;
     font-family: Inter;
@@ -843,7 +845,7 @@ footer {
 }
 .new-memeber{
     position: absolute;
-    top: 104px;
+    top: 185px;
     left: 61px;
     font-size: 16px;
     font-family: Inter;
