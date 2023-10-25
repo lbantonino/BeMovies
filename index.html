@@ -42,15 +42,6 @@
             <h2 class="text-result-search">Results for “godfather”</h2>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 2.png" alt=""></div>
-                    <div class="swiper-slide"><img src="images/films-essais/Rectangle 2.png" alt=""></div>
-                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 3.png" alt=""></div>
-                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 5.png" alt=""></div> 
-                    <div class="swiper-slide">Slide 5</div>
-                    <div class="swiper-slide">Slide 6</div>
-                    <div class="swiper-slide">Slide 7</div>
-                    <div class="swiper-slide">Slide 8</div>
-                    <div class="swiper-slide">Slide 9</div>
                 </div>
             </div>
                 <div class="fleche-swiper">
@@ -59,6 +50,18 @@
                 </div>
         </section>
 
+        <template id="swiper-template">
+        <div class="swiper-hover">
+            <img src="/img/test.jpg" alt="film poster of the movie">
+            <div class="film-poster-hover">
+                <h1>Title</h1>
+                <h2>years</h2>
+                <h3>genre</h3>
+                <img src="images/star.svg" alt="star">
+                <h4>rate</h4>
+            </div>
+        </div>
+        </template>
         <!--section lié à aux latest releases (dans app.js (ligne 11) -> mySwiper1)-->
         <section class="container section-latest-releases" id="latest-id">
             <h2 class="text-latest-releases">Latest releases</h2>
@@ -159,7 +162,7 @@
     </div>
     </template>
     <!-- template who's appear to click to Sign up / register (register)-->
-    <!-- <template>  -->
+    <template> 
         <div class="popup">
             <div class="popup-register">
                 <div class="contenu-popup-register">
