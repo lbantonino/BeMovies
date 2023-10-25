@@ -91,7 +91,9 @@ let fetchBySearch = async (search) => {
     let data = await res.json()
     let arrayData = data.results;
     arrayData.forEach(element => {
-      genreFunc(element)
+      console.log(element)
+      genreFunc(element);
+      titleFunc(element);
       let newDiv = document.createElement("div");
       let swiperSlide = swiper1.appendChild(newDiv);
       swiperSlide.classList.add("swiper-slide");
@@ -119,6 +121,13 @@ let genreFunc = (element) => {
 let posterFunc = (url) => {
   return `https://image.tmdb.org/t/p/original${url}`
 }
+
+let titleFunc = (element) => {
+  let title = element.original_title;
+  console.log(title)
+  return title
+}
+
 // Reset Swiper
 
 let resetSwiper = (swiper) => {
