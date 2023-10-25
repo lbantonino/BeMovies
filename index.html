@@ -11,12 +11,12 @@
     <!-- header / logo et nav bar-->
     <header id="header">
         <div class="container">
-            <nav>
+            <nav class="header-nav">
             <div class="logo">
                 <h1><a href="#"><span>BE</span>MOVIES</a></h1>
             </div>
                 <!-- Menu hamburger (responsive)-->
-                <div class="hamburger">&#9776</div>
+                <div class="hamburger"> <span>&#9776</span></div>
                 <ul class="menu">
                     <li><a href="#search-id">SEARCH</a></li>
                     <li><a href="#latest-id">LATEST</a></li>
@@ -27,12 +27,13 @@
             </nav>
         </div>
     </header>
+    
     <main>
         <!-- section pour search (form)-->
         <section class="container section-search" id="search-id">
             <form action="">
                 <input type="text" name="search" id="search" placeholder="movie, category, ...">
-                <button class="btn-search"><img src="/images/fleche.png" alt="" class="img-fleche"></button>
+                <button type="button" class="btn-search"><img src="/images/fleche.png" alt="" class="img-fleche"></button>
             </form>
         </section>
 
@@ -53,8 +54,8 @@
                 </div>
             </div>
                 <div class="fleche-swiper">
-                    <div class="button-prev"><img src="images/fleche-swipper-prev.png" alt=""></div>
-                    <div class="button-next"><img src="/images/fleche swiper-next.png" alt=""></div>
+                    <div class="button-prev"><img src="/images/Vector.svg" alt=""></div>
+                    <div class="button-next"><img src="/images/Vector-next.svg" alt=""></div>
                 </div>
         </section>
 
@@ -75,8 +76,8 @@
                 </div>
             </div>
                 <div class="fleche-swiper1">
-                    <div class="button-prev1"><img src="images/fleche-swipper-prev.png" alt=""></div>
-                    <div class="button-next1"><img src="/images/fleche swiper-next.png" alt=""></div>
+                    <div class="button-prev1"><img src="images/Vector.svg" alt=""></div>
+                    <div class="button-next1"><img src="/images/Vector-next.svg" alt=""></div>
                 </div>
         </section>
 
@@ -109,11 +110,12 @@
                 </div>
             </div>
             <div class="fleche-swiper2">
-                <div class="button-prev2"><img src="images/fleche-swipper-prev.png" alt=""></div>
-                <div class="button-next2"><img src="/images/fleche swiper-next.png" alt=""></div>
+                <div class="button-prev2"><img src="images/Vector.svg" alt=""></div>
+                <div class="button-next2"><img src="/images/Vector-next.svg" alt=""></div>
             </div>
         </section>
     </main>
+
     <footer>
         <div class="container">
                 <nav class="footer-nav">
@@ -131,9 +133,10 @@
                 </nav>
         </div>
     </footer>
-    <!-- <template> -->
+    <!-- template who's appear to click to signin (login)-->
+    <template> 
     <div class="popup">
-        <div class="popup-register-login">
+        <div class="popup-login">
             <div class="contenu-popup">
                 <div class="cross"><img src="/images/POPUP REGISTER/Group 9.svg" alt=""></div>
                 <div class="signup"><h2>SIGNUP</h2></div>
@@ -149,12 +152,67 @@
                 <div class="btn-forgot">
                 <button class="btn-login">LOGIN</button>
                 <p class="forgot">I forgot my password</p>
-                <p class="new-memeber">Not a member yer ? Sign up</p>
+                <p class="new-memeber">Not a member yer ? <span>Sign up</span></p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- </template> -->
+    </template>
+    <!-- template who's appear to click to Sign up / register (register)-->
+    <template> 
+        <div class="popup">
+            <div class="popup-register">
+                <div class="contenu-popup-register">
+                    <div class="cross"><img src="/images/POPUP REGISTER/Group 9.svg" alt=""></div>
+                    <div class="signup-register"><h2>SIGNUP</h2></div>
+                    <div class="login-register"><h2>LOGIN</h2></div>
+                    <form action="" class="form-login">
+                        <input type="text" name="username" id="username" placeholder="Username">
+                        <input type="text" name="username" id="email" placeholder="Email">
+                        <input type="password" name="password" id="password1" placeholder="Password">
+                        <input type="password" name="password" id="password2" placeholder=" Confirm your Password">
+                    </form>
+                    <button class="btn-register">SIGN UP</button>
+                    
+                </div>
+            </div>
+        </div>
+    </template>
+<!-- template who's appear to click to see card of the movie/ (picture - synopsis - rate - directors)-->
+    <template>
+        <div class="popup-movie">
+            <div class="card-movie">
+                <div class="cross-movie"><img src="/images/POPUP REGISTER/Group 9.svg" alt=""></div>
+                <div class="content-card">
+                    <div class="images-movie"></div>
+                    <div class="card-text">
+                    <h2 class="movie-title">Title</h2>
+                    <p class="movie-year">year</p>
+                    <div class="stars-opinion">
+                        <img src="/images/star.svg" alt="">
+                        <p class="opinion">8.7</p>
+                    </div>
+                    <h3 class="genre-movie">Genre / type</h3>
+                    <p class="synopsis">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.</p>
+                    <p class="cast-movie"><span>cast:</span>&nbsp;&nbsp;&nbsp;&nbsp;Marlon Brando, Al Pacino, James Caan,Robert Duvall</p>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </template>
+<!-- template who's appear to click to the modal with hamburger menu-->
+    <!-- <template> -->
+        <div class="modal-menu">
+            <div class="cross-hamburger">X</div>
+            <ul class="menu-hamburger">
+                <li><a href="#search-id">SEARCH</a></li>
+                <li><a href="#latest-id">LATEST</a></li>
+                <li><a href="#genres-id">GENRES</a></li>
+                <li><a href="#register-id">REGISTER</a></li>
+                <li><a href="#signin-id">SIGN IN</a></li>
+            </ul>
+        </div>
+    </template>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="app.js"></script>
 </body>
