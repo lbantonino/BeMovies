@@ -40,9 +40,16 @@ const options = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTJjZjE0ZDQzNzQyZjJiMWE1ZWFjMmNkMmQxMDU3MiIsInN1YiI6IjY1MzhjMDEzYWUzNjY4MDBhZGE4MDIzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.L1jWmZ_mygneYzG_Jd0RZ57Avi5K1qyiSvvFXwl6ybc'
   }
 }
+let body = document.querySelector("body")
 let popup = document.querySelector(".popup");
 let crossDiv = document.querySelector(".cross");
-/* let cross = crossDiv.querySelector("img"); */
+let cross = crossDiv.querySelector("img");
+let menu = document.querySelector(".menu");
+let register = menu.children[3];
+let signIn = menu.children[4];
+let footerMenu = document.querySelector(".footer-menu");
+let footerRegister = footerMenu.children[3];
+let footerSignIn = footerMenu.children[4];
 let searchingBar = document.querySelector("#search");
 let mySwiper1 = document.querySelector(".mySwiper");
 let swiper1 = mySwiper1.querySelector(".swiper-wrapper");
@@ -75,38 +82,32 @@ let genres = {
 // Functions
 
 
-let checkAuth = async() => {
-    try {
-      let res = await fetch('https://api.themoviedb.org/3/authentication', options)
-      let data = await res.json()
-      console.log(data)
-  } catch (error) {
-      console.log(error)
-  }
-}
-
 let fetchBySearch = async (search) => {
   try {
     let res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US`, options)
     let data = await res.json()
     let arrayData = data.results;
     arrayData.forEach(element => {
-      console.log(element)
-      genreFunc(element);
-      titleFunc(element);
+      // create the swiper slide div
       let newDiv = document.createElement("div");
       let swiperSlide = swiper1.appendChild(newDiv);
       swiperSlide.classList.add("swiper-slide");
+      // retrieve data for the movie
+      console.log(element)
+      genreFunc(element);
+      titleFunc(element);
+      yearFunc(element);
+      rateFunc(element);
       let newImg = document.createElement("img");
       let img = swiperSlide.appendChild(newImg);
       img.src = posterFunc(element.poster_path);
-      /* posterFunc(element.poster_path) */
     });
     console.log(arrayData)
   } catch (error) {
       console.log(error)
   }
 }
+
 let genreFunc = (element) => {
   let arrayOfGenre = element.genre_ids;
   let movieGenre = []
@@ -118,6 +119,7 @@ let genreFunc = (element) => {
   console.log(movieGenre)
   return movieGenre
 }
+
 let posterFunc = (url) => {
   return `https://image.tmdb.org/t/p/original${url}`
 }
@@ -128,16 +130,39 @@ let titleFunc = (element) => {
   return title
 }
 
+let yearFunc = (element) => {
+  let date = element.release_date;
+  let year = date.slice(0,4)
+  console.log(year)
+  return year
+}
+
+let rateFunc = (element) => {
+  let rate = element.vote_average;
+  console.log(rate)
+  return rate
+}
+
 // Reset Swiper
 
 let resetSwiper = (swiper) => {
-  swiper.innerHTML = ""
+  swiper.innerHTML = "";
 }
 
-let resetAllSwiper = () => {
-  resetSwiper(swiper1)
-  resetSwiper(swiper2)
-  resetSwiper(swiper3)
+let loginModal = () => {
+  let template = document.querySelector();
+  let newDiv = document.createElement("div");
+  let modal = body.appendChild(newDiv);
+  modal.classList.add("popup");
+  modal.innerHTML = template.children[0].innerHTML;
+}
+
+let registerModal = () => {
+  let template = document.querySelector();
+  let newDiv = document.createElement("div");
+  let modal = body.appendChild(newDiv);
+  modal.classList.add("popup");
+  modal.innerHTML = template.children[0].innerHTML;
 }
 
 /* let loginCheck = () => {
@@ -162,17 +187,16 @@ let resetAllSwiper = () => {
 
 // Actions
 document.addEventListener("click", (e) => {
-  /* if (e.target === cross) {
+  if (e.target === cross) {
     popup.style.display = "none"
-  } else */ if (e.target.matches(".btn-login")) {
+  } else if (e.target.matches(".btn-login")) {
     loginCheck()
   } else if (e.target.matches(".btn-search")){
     resetSwiper(swiper1)
     fetchBySearch(searchingBar.value)
+  } else if (e.target == register || e.target == register.children[0] || e.target == footerRegister || e.target == footerRegister.children[0]) {
+    console.log("register")
+  } else if (e.target == signIn || e.target == signIn.children[0] || e.target == footerSignIn || e.target == footerSignIn.children[0]) {
+    loginModal()
   }
 })
-
-
-// https://image.tmdb.org/t/p/original${poster-path}
-
-//https://api.themoviedb.org/3/search/movie?query=pirate&include_adult=false&language=en-US&page=1
