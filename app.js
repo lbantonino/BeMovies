@@ -41,9 +41,6 @@ const options = {
   }
 }
 let body = document.querySelector("body")
-let popup = document.querySelector(".popup");
-let crossDiv = document.querySelector(".cross");
-let cross = crossDiv.querySelector("img");
 let menu = document.querySelector(".menu");
 let register = menu.children[3];
 let signIn = menu.children[4];
@@ -88,19 +85,8 @@ let fetchBySearch = async (search) => {
     let data = await res.json()
     let arrayData = data.results;
     arrayData.forEach(element => {
-      // create the swiper slide div
-      let newDiv = document.createElement("div");
-      let swiperSlide = swiper1.appendChild(newDiv);
-      swiperSlide.classList.add("swiper-slide");
-      // retrieve data for the movie
+      createSlide(element, swiper1)
       console.log(element)
-      genreFunc(element);
-      titleFunc(element);
-      yearFunc(element);
-      rateFunc(element);
-      let newImg = document.createElement("img");
-      let img = swiperSlide.appendChild(newImg);
-      img.src = posterFunc(element.poster_path);
     });
     console.log(arrayData)
   } catch (error) {
@@ -116,86 +102,150 @@ let genreFunc = (element) => {
   });
   movieGenre = movieGenre.toString()
   movieGenre = movieGenre.replaceAll(","," / ")
-  console.log(movieGenre)
   return movieGenre
 }
 
-let posterFunc = (url) => {
+let img = (element) => {
+  let url = element.poster_path
   return `https://image.tmdb.org/t/p/original${url}`
 }
 
 let titleFunc = (element) => {
   let title = element.original_title;
-  console.log(title)
   return title
 }
 
 let yearFunc = (element) => {
   let date = element.release_date;
   let year = date.slice(0,4)
-  console.log(year)
   return year
 }
 
 let rateFunc = (element) => {
   let rate = element.vote_average;
-  console.log(rate)
   return rate
 }
 
-// Reset Swiper
+let createSlide = (element, swiper) => {
+  let template = document.querySelector("#swiper-template")
+  let newDiv = document.createElement("div");
+  let swiperSlide = swiper.appendChild(newDiv);
+  swiperSlide.classList.add("swiper-slide");
+  swiperSlide.innerHTML = template.innerHTML;
+  createOver(element, swiperSlide)
+}
+
+let createOver = (element, swiperSlide) => {
+  let movieImg = img(element);
+  let slideImg = swiperSlide.children[0].querySelector("img");
+  slideImg.src = movieImg;
+  let title = titleFunc(element);
+  let slideTitle = swiperSlide.querySelector("h1");
+  slideTitle.textContent = title;
+  let year = yearFunc(element);
+  let slideYear = swiperSlide.querySelector("h2");
+  slideYear.textContent = year;
+  let genre = genreFunc(element);
+  let slideGenre = swiperSlide.querySelector("h3");
+  slideGenre.textContent = genre;
+  let rate = rateFunc(element);
+  let slideRate = swiperSlide.querySelector("h4");
+  slideRate.textContent = rate;
+}
 
 let resetSwiper = (swiper) => {
   swiper.innerHTML = "";
 }
 
 let loginModal = () => {
-  let template = document.querySelector();
+  let template = document.querySelector("#popup-modal-login");
   let newDiv = document.createElement("div");
   let modal = body.appendChild(newDiv);
-  modal.classList.add("popup");
-  modal.innerHTML = template.children[0].innerHTML;
+  modal.innerHTML = template.innerHTML;
+  let newMember = document.querySelector(".new-memeber");
+  let signInButton = newMember.querySelector("span")
+  closeModal()
+  loginCheck()
+  document.addEventListener("click", (e) => {
+    if (e.target === signInButton) {
+      let modalW = document.querySelector(".popup").parentElement;
+      modalW.remove()
+      registerModal()
+    }
+  })
+  
 }
 
 let registerModal = () => {
-  let template = document.querySelector();
+  let template = document.querySelector("#popup-modal-register");
   let newDiv = document.createElement("div");
   let modal = body.appendChild(newDiv);
-  modal.classList.add("popup");
-  modal.innerHTML = template.children[0].innerHTML;
+  modal.innerHTML = template.innerHTML;
+  closeModal()
+  registerCheck()
 }
 
-/* let loginCheck = () => {
+let closeModal = () => {
+  let modal = document.querySelector(".popup").parentElement
+  let crossDiv = document.querySelector(".cross");
+  let cross = crossDiv.querySelector("img")
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".popup")) {
+      modal.remove()
+    } else if (e.target === cross) {
+      modal.remove()
+    }
+  })
+}
+
+let loginCheck = () => {
   let username = document.querySelector("#username");
   let password = document.querySelector("#password");
   let rememberCheckbox = document.querySelector("#remember");
-  let menu = document.querySelector(".menu");
-  // let openSignIn = menu.childElement[5].children;
-  
-  if (username.value.trim()) {
-    let info = {
-      Username: username.value,
-      Password: password.value,
-      Remember: rememberCheckbox.checked,
-    };
-    console.log(info);
-    username.value = "";
-    password.value = "";
-    rememberCheckbox.checked = false;
-  }
-} */
+  let button = document.querySelector(".btn-login")
+  button.addEventListener("click", () => {
+    if (username.value.trim() && password.value.trim()) {
+      let info = {
+        Username: username.value,
+        Password: password.value,
+        Remember: rememberCheckbox.checked,
+      };
+      console.log(info);
+      let modal = document.querySelector(".popup").parentElement;
+      modal.remove();
+    }
+  })
+}
+
+let registerCheck = () => {
+  let username = document.querySelector("#username");
+  let email = document.querySelector("#email");
+  let password1 = document.querySelector("#password1");
+  let password2 = document.querySelector("#password2");
+    document.addEventListener("click", (e) => {
+      if (e.target.matches(".btn-register")) {
+        if (username.value.trim() && email.value.trim() && password1.value == password2.value) {
+          let info = {
+            Username: username.value,
+            Email: email.value,
+            Password: password1.value,
+          };
+        console.log(info)
+        let modal = document.querySelector(".popup").parentElement;
+        modal.remove();
+      }
+    }
+  })
+}
 
 // Actions
+
 document.addEventListener("click", (e) => {
-  if (e.target === cross) {
-    popup.style.display = "none"
-  } else if (e.target.matches(".btn-login")) {
-    loginCheck()
-  } else if (e.target.matches(".btn-search")){
+  if (e.target.matches(".btn-search")) {
     resetSwiper(swiper1)
     fetchBySearch(searchingBar.value)
   } else if (e.target == register || e.target == register.children[0] || e.target == footerRegister || e.target == footerRegister.children[0]) {
-    console.log("register")
+    registerModal()
   } else if (e.target == signIn || e.target == signIn.children[0] || e.target == footerSignIn || e.target == footerSignIn.children[0]) {
     loginModal()
   }
