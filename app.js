@@ -115,7 +115,8 @@ let fetchByGenre = async (genreId) => {
 
 let fetchLatest = async () => {
   try {
-    let today = Date()
+    let today = new Date()
+    let lastMonth  = new Date(); today.setMonth(today.getMonth()-1);
     let res = await fetch(``, options)
     let data = await res.json()
     let arrayData = data.results;
