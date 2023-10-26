@@ -116,8 +116,8 @@ let fetchByGenre = async (genreId) => {
 let fetchLatest = async () => {
   try {
     let today = new Date()
-    let lastMonth  = new Date(); today.setMonth(today.getMonth()-1);
-    let res = await fetch(``, options)
+    let lastMonth  = new Date(); lastMonth.setMonth(today.getMonth()-1);
+    let res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&release_date.gte=${lastMonth.toISOString().slice(0,10)}&release_date.lte=${today.toISOString().slice(0,10)}&sort_by=popularity.desc`, options)
     let data = await res.json()
     let arrayData = data.results;
     arrayData.forEach(element => {
@@ -160,13 +160,20 @@ let rateFunc = (element) => {
   return rate
 }
 
+let overviewFunc = (element) => {
+  let overview = element.overview;
+  return overview
+}
+
 let createSlide = (element, swiper) => {
+  console.log(element)
   let template = document.querySelector("#swiper-template")
   let newDiv = document.createElement("div");
   let swiperSlide = swiper.appendChild(newDiv);
   swiperSlide.classList.add("swiper-slide");
   swiperSlide.innerHTML = template.innerHTML;
   createOver(element, swiperSlide)
+  createPopup(element, swiperSlide)
 }
 
 let createOver = (element, swiperSlide) => {
@@ -180,6 +187,34 @@ let createOver = (element, swiperSlide) => {
   slideGenre.textContent = genreFunc(element);
   let slideRate = swiperSlide.querySelector("h4");
   slideRate.textContent = rateFunc(element);
+}
+
+let createPopup = (element, slide) => {
+  slide.addEventListener("click", () => {
+    let template = document.querySelector("#popup-card-movie");
+    let newDiv = document.createElement("div");
+    let modal = body.appendChild(newDiv);
+    modal.innerHTML = template.innerHTML;
+    // Put element of the fetch inside modal
+    let imgDiv = modal.querySelector(".images-movie");
+    let newImg = document.createElement("img")
+    let modalImg = imgDiv.appendChild(newImg)
+    modalImg.classList.add("images-movie")
+    modalImg.src = img(element);
+    let modalTitle = modal.querySelector(".movie-title");
+    modalTitle.textContent = titleFunc(element);
+    let modalYear = modal.querySelector(".movie-year");
+    modalYear.textContent = yearFunc(element);
+    let modalGenre = modal.querySelector(".genre-movie");
+    modalGenre.textContent = genreFunc(element);
+    let modalRate = modal.querySelector(".opinion");
+    modalRate.textContent = rateFunc(element);
+    let modalOverview = modal.querySelector(".synopsis");
+    modalOverview.textContent = overviewFunc(element);
+    let modalCast = modal.querySelector(".cast-movie")
+    modalCast.innerHTML = "";
+    closePopup()
+  })
 }
 
 let resetSwiper = (swiper) => {
@@ -222,6 +257,19 @@ let closeModal = () => {
     if (e.target.matches(".popup")) {
       modal.remove()
     } else if (e.target === cross) {
+      modal.remove()
+    }
+  })
+}
+
+let closePopup = () => {
+  let crossDiv = document.querySelector(".cross-movie")
+  let cross = crossDiv.children[0]
+  let modal = document.querySelector(".popup-movie");
+  document.addEventListener("click", (e) => {
+    if (e.target == cross) {
+      modal.remove()
+    } else if (e.target.matches(".popup-movie")) {
       modal.remove()
     }
   })
