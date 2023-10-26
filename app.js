@@ -95,6 +95,9 @@ let fetchBySearch = async (search) => {
     arrayData.forEach(element => {
       createSlide(element, swiper1)
     });
+    let searchingText = document.querySelector(".text-result-search");
+    searchingText.textContent = `Results for “${search}”`;
+    searchingText.style.display = "block"
   } catch (error) {
       console.log(error)
   }
@@ -166,7 +169,6 @@ let overviewFunc = (element) => {
 }
 
 let createSlide = (element, swiper) => {
-  console.log(element)
   let template = document.querySelector("#swiper-template")
   let newDiv = document.createElement("div");
   let swiperSlide = swiper.appendChild(newDiv);
