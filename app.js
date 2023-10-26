@@ -325,6 +325,7 @@ resetSwiper(swiper3);
 fetchByGenre(35);
 
 document.addEventListener("click", (e) => {
+  e.preventDefault()
   if (e.target.matches(".btn-search")) {
     // Fetch by searching bar
     resetSwiper(swiper1);
@@ -370,6 +371,5 @@ document.addEventListener("click", (e) => {
 search.addEventListener("change", (e) => {
   // Fetch by searching bar
   e.preventDefault()
-  resetSwiper(swiper1)
   fetchBySearch(searchingBar.value)
 }) 
