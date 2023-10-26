@@ -41,9 +41,6 @@ const options = {
   }
 }
 let body = document.querySelector("body")
-let popup = document.querySelector(".popup");
-let crossDiv = document.querySelector(".cross");
-let cross = crossDiv.querySelector("img");
 let menu = document.querySelector(".menu");
 let register = menu.children[3];
 let signIn = menu.children[4];
@@ -57,6 +54,14 @@ let mySwiper2 = document.querySelector(".mySwiper1");
 let swiper2 = mySwiper2.querySelector(".swiper-wrapper");
 let mySwiper3 = document.querySelector(".mySwiper2");
 let swiper3 = mySwiper3.querySelector(".swiper-wrapper");
+let genreUL = document.querySelector(".genre");
+let comedyGenre = genreUL.children[0];
+let dramaGenre = genreUL.children[1];
+let actionGenre = genreUL.children[2];
+let romanceGenre = genreUL.children[3];
+let fantasyGenre = genreUL.children[4];
+let animationGenre = genreUL.children[5];
+let textGenre = document.querySelector(".text-genre");
 let genres = {
   id28: "Action",
   id12: "Adventure",
@@ -88,21 +93,39 @@ let fetchBySearch = async (search) => {
     let data = await res.json()
     let arrayData = data.results;
     arrayData.forEach(element => {
-      // create the swiper slide div
-      let newDiv = document.createElement("div");
-      let swiperSlide = swiper1.appendChild(newDiv);
-      swiperSlide.classList.add("swiper-slide");
-      // retrieve data for the movie
-      console.log(element)
-      genreFunc(element);
-      titleFunc(element);
-      yearFunc(element);
-      rateFunc(element);
-      let newImg = document.createElement("img");
-      let img = swiperSlide.appendChild(newImg);
-      img.src = posterFunc(element.poster_path);
+      createSlide(element, swiper1)
     });
-    console.log(arrayData)
+    let searchingText = document.querySelector(".text-result-search");
+    searchingText.textContent = `Results for “${search}”`;
+    searchingText.style.display = "block"
+  } catch (error) {
+      console.log(error)
+  }
+}
+
+let fetchByGenre = async (genreId) => {
+  try {
+    let res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`, options)
+    let data = await res.json()
+    let arrayData = data.results;
+    arrayData.forEach(element => {
+      createSlide(element, swiper3)
+    });
+  } catch (error) {
+      console.log(error)
+  }
+}
+
+let fetchLatest = async () => {
+  try {
+    let today = new Date()
+    let lastMonth  = new Date(); lastMonth.setMonth(today.getMonth()-1);
+    let res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&release_date.gte=${lastMonth.toISOString().slice(0,10)}&release_date.lte=${today.toISOString().slice(0,10)}&sort_by=popularity.desc`, options)
+    let data = await res.json()
+    let arrayData = data.results;
+    arrayData.forEach(element => {
+      createSlide(element, swiper2)
+    });
   } catch (error) {
       console.log(error)
   }
@@ -116,87 +139,237 @@ let genreFunc = (element) => {
   });
   movieGenre = movieGenre.toString()
   movieGenre = movieGenre.replaceAll(","," / ")
-  console.log(movieGenre)
   return movieGenre
 }
 
-let posterFunc = (url) => {
+let img = (element) => {
+  let url = element.poster_path
   return `https://image.tmdb.org/t/p/original${url}`
 }
 
 let titleFunc = (element) => {
   let title = element.original_title;
-  console.log(title)
   return title
 }
 
 let yearFunc = (element) => {
   let date = element.release_date;
   let year = date.slice(0,4)
-  console.log(year)
   return year
 }
 
 let rateFunc = (element) => {
   let rate = element.vote_average;
-  console.log(rate)
   return rate
 }
 
-// Reset Swiper
+let overviewFunc = (element) => {
+  let overview = element.overview;
+  return overview
+}
+
+let createSlide = (element, swiper) => {
+  let template = document.querySelector("#swiper-template")
+  let newDiv = document.createElement("div");
+  let swiperSlide = swiper.appendChild(newDiv);
+  swiperSlide.classList.add("swiper-slide");
+  swiperSlide.innerHTML = template.innerHTML;
+  createOver(element, swiperSlide)
+  createPopup(element, swiperSlide)
+}
+
+let createOver = (element, swiperSlide) => {
+  let slideImg = swiperSlide.children[0].querySelector("img");
+  slideImg.src = img(element);
+  let slideTitle = swiperSlide.querySelector("h1");
+  slideTitle.textContent = titleFunc(element);
+  let slideYear = swiperSlide.querySelector("h2");
+  slideYear.textContent = yearFunc(element);
+  let slideGenre = swiperSlide.querySelector("h3");
+  slideGenre.textContent = genreFunc(element);
+  let slideRate = swiperSlide.querySelector("h4");
+  slideRate.textContent = rateFunc(element);
+}
+
+let createPopup = (element, slide) => {
+  slide.addEventListener("click", () => {
+    let template = document.querySelector("#popup-card-movie");
+    let newDiv = document.createElement("div");
+    let modal = body.appendChild(newDiv);
+    modal.innerHTML = template.innerHTML;
+    // Put element of the fetch inside modal
+    let imgDiv = modal.querySelector(".images-movie");
+    let newImg = document.createElement("img")
+    let modalImg = imgDiv.appendChild(newImg)
+    modalImg.classList.add("images-movie")
+    modalImg.src = img(element);
+    let modalTitle = modal.querySelector(".movie-title");
+    modalTitle.textContent = titleFunc(element);
+    let modalYear = modal.querySelector(".movie-year");
+    modalYear.textContent = yearFunc(element);
+    let modalGenre = modal.querySelector(".genre-movie");
+    modalGenre.textContent = genreFunc(element);
+    let modalRate = modal.querySelector(".opinion");
+    modalRate.textContent = rateFunc(element);
+    let modalOverview = modal.querySelector(".synopsis");
+    modalOverview.textContent = overviewFunc(element);
+    let modalCast = modal.querySelector(".cast-movie")
+    modalCast.innerHTML = "";
+    closePopup()
+  })
+}
 
 let resetSwiper = (swiper) => {
   swiper.innerHTML = "";
 }
 
 let loginModal = () => {
-  let template = document.querySelector();
+  let template = document.querySelector("#popup-modal-login");
   let newDiv = document.createElement("div");
   let modal = body.appendChild(newDiv);
-  modal.classList.add("popup");
-  modal.innerHTML = template.children[0].innerHTML;
+  modal.innerHTML = template.innerHTML;
+  let newMember = document.querySelector(".new-memeber");
+  let signInButton = newMember.querySelector("span")
+  closeModal()
+  loginCheck()
+  document.addEventListener("click", (e) => {
+    if (e.target === signInButton) {
+      let modalW = document.querySelector(".popup").parentElement;
+      modalW.remove()
+      registerModal()
+    }
+  })
+  
 }
 
 let registerModal = () => {
-  let template = document.querySelector();
+  let template = document.querySelector("#popup-modal-register");
   let newDiv = document.createElement("div");
   let modal = body.appendChild(newDiv);
-  modal.classList.add("popup");
-  modal.innerHTML = template.children[0].innerHTML;
+  modal.innerHTML = template.innerHTML;
+  closeModal()
+  registerCheck()
 }
 
-/* let loginCheck = () => {
+let closeModal = () => {
+  let modal = document.querySelector(".popup").parentElement
+  let crossDiv = document.querySelector(".cross");
+  let cross = crossDiv.querySelector("img")
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".popup")) {
+      modal.remove()
+    } else if (e.target === cross) {
+      modal.remove()
+    }
+  })
+}
+
+let closePopup = () => {
+  let crossDiv = document.querySelector(".cross-movie")
+  let cross = crossDiv.children[0]
+  let modal = document.querySelector(".popup-movie");
+  document.addEventListener("click", (e) => {
+    if (e.target == cross) {
+      modal.remove()
+    } else if (e.target.matches(".popup-movie")) {
+      modal.remove()
+    }
+  })
+}
+
+let loginCheck = () => {
   let username = document.querySelector("#username");
   let password = document.querySelector("#password");
   let rememberCheckbox = document.querySelector("#remember");
-  let menu = document.querySelector(".menu");
-  // let openSignIn = menu.childElement[5].children;
-  
-  if (username.value.trim()) {
-    let info = {
-      Username: username.value,
-      Password: password.value,
-      Remember: rememberCheckbox.checked,
-    };
-    console.log(info);
-    username.value = "";
-    password.value = "";
-    rememberCheckbox.checked = false;
-  }
-} */
+  let button = document.querySelector(".btn-login")
+  button.addEventListener("click", () => {
+    if (username.value.trim() && password.value.trim()) {
+      let info = {
+        Username: username.value,
+        Password: password.value,
+        Remember: rememberCheckbox.checked,
+      };
+      console.log(info);
+      let modal = document.querySelector(".popup").parentElement;
+      modal.remove();
+    }
+  })
+}
+
+let registerCheck = () => {
+  let username = document.querySelector("#username");
+  let email = document.querySelector("#email");
+  let password1 = document.querySelector("#password1");
+  let password2 = document.querySelector("#password2");
+    document.addEventListener("click", (e) => {
+      if (e.target.matches(".btn-register")) {
+        if (username.value.trim() && email.value.trim() && password1.value == password2.value) {
+          let info = {
+            Username: username.value,
+            Email: email.value,
+            Password: password1.value,
+          };
+        console.log(info)
+        let modal = document.querySelector(".popup").parentElement;
+        modal.remove();
+      }
+    }
+  })
+}
 
 // Actions
+
+resetSwiper(swiper2);
+fetchLatest();
+resetSwiper(swiper3);
+fetchByGenre(35);
+
 document.addEventListener("click", (e) => {
-  if (e.target === cross) {
-    popup.style.display = "none"
-  } else if (e.target.matches(".btn-login")) {
-    loginCheck()
-  } else if (e.target.matches(".btn-search")){
-    resetSwiper(swiper1)
-    fetchBySearch(searchingBar.value)
+  e.preventDefault()
+  if (e.target.matches(".btn-search")) {
+    // Fetch by searching bar
+    resetSwiper(swiper1);
+    fetchBySearch(searchingBar.value);
   } else if (e.target == register || e.target == register.children[0] || e.target == footerRegister || e.target == footerRegister.children[0]) {
-    console.log("register")
+    // Open Register Modal
+    registerModal();
   } else if (e.target == signIn || e.target == signIn.children[0] || e.target == footerSignIn || e.target == footerSignIn.children[0]) {
-    loginModal()
+    // Open Login Modal
+    loginModal();
+  } else if (e.target == comedyGenre) {
+    // Fetch comedy
+    resetSwiper(swiper3);
+    textGenre.textContent = "Comedy";
+    fetchByGenre(35)
+  } else if (e.target == dramaGenre) {
+    // Fetch drama
+    resetSwiper(swiper3);
+    textGenre.textContent = "Drama"
+    fetchByGenre(18);
+  } else if (e.target == actionGenre) {
+    // Fetch action
+    resetSwiper(swiper3);
+    textGenre.textContent = "Action"
+    fetchByGenre(28);
+  } else if (e.target == romanceGenre) {
+    // Fetch fantasy
+    resetSwiper(swiper3);
+    textGenre.textContent = "Romance"
+    fetchByGenre(10749);
+  } else if (e.target == fantasyGenre) {
+    // Fetch fantasy
+    resetSwiper(swiper3);
+    textGenre.textContent = "Fantasy"
+    fetchByGenre(14);
+  } else if (e.target == animationGenre) {
+    // Fetch animation
+    resetSwiper(swiper3);
+    textGenre.textContent = "Animation"
+    fetchByGenre(16);
   }
 })
+search.addEventListener("change", (e) => {
+  // Fetch by searching bar
+  e.preventDefault()
+  fetchBySearch(searchingBar.value)
+}) 
