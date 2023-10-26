@@ -54,6 +54,13 @@ let mySwiper2 = document.querySelector(".mySwiper1");
 let swiper2 = mySwiper2.querySelector(".swiper-wrapper");
 let mySwiper3 = document.querySelector(".mySwiper2");
 let swiper3 = mySwiper3.querySelector(".swiper-wrapper");
+let genreUL = document.querySelector(".genre");
+let comedyGenre = genreUL.children[0];
+let dramaGenre = genreUL.children[1];
+let actionGenre = genreUL.children[2];
+let romanceGenre = genreUL.children[3];
+let fantasyGenre = genreUL.children[4];
+let animationGenre = genreUL.children[5];
 let genres = {
   id28: "Action",
   id12: "Adventure",
@@ -86,9 +93,33 @@ let fetchBySearch = async (search) => {
     let arrayData = data.results;
     arrayData.forEach(element => {
       createSlide(element, swiper1)
-      console.log(element)
     });
-    console.log(arrayData)
+  } catch (error) {
+      console.log(error)
+  }
+}
+
+let fetchByGenre = async (genreId) => {
+  try {
+    let res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`, options)
+    let data = await res.json()
+    let arrayData = data.results;
+    arrayData.forEach(element => {
+      createSlide(element, swiper3)
+    });
+  } catch (error) {
+      console.log(error)
+  }
+}
+
+let fetchLatest = async () => {
+  try {
+    let res = await fetch(``, options)
+    let data = await res.json()
+    let arrayData = data.results;
+    arrayData.forEach(element => {
+      createSlide(element, swiper2)
+    });
   } catch (error) {
       console.log(error)
   }
@@ -240,13 +271,51 @@ let registerCheck = () => {
 
 // Actions
 
+resetSwiper(swiper2)
+fetchLatest()
+resetSwiper(swiper3)
+fetchByGenre(35)
+
 document.addEventListener("click", (e) => {
   if (e.target.matches(".btn-search")) {
+    // Fetch by searching bar
     resetSwiper(swiper1)
     fetchBySearch(searchingBar.value)
   } else if (e.target == register || e.target == register.children[0] || e.target == footerRegister || e.target == footerRegister.children[0]) {
+    // Open Register Modal
     registerModal()
   } else if (e.target == signIn || e.target == signIn.children[0] || e.target == footerSignIn || e.target == footerSignIn.children[0]) {
+    // Open Login Modal
     loginModal()
+  } else if (e.target == comedyGenre) {
+    // Fetch comedy
+    resetSwiper(swiper3)
+    fetchByGenre(35)
+  } else if (e.target == dramaGenre) {
+    // Fetch drama
+    resetSwiper(swiper3)
+    fetchByGenre(18)
+  } else if (e.target == actionGenre) {
+    // Fetch action
+    resetSwiper(swiper3)
+    fetchByGenre(28)
+  } else if (e.target == romanceGenre) {
+    // Fetch fantasy
+    resetSwiper(swiper3)
+    fetchByGenre(10749)
+  } else if (e.target == fantasyGenre) {
+    // Fetch fantasy
+    resetSwiper(swiper3)
+    fetchByGenre(14)
+  } else if (e.target == animationGenre) {
+    // Fetch animation
+    resetSwiper(swiper3)
+    fetchByGenre(16)
   }
 })
+search.addEventListener("change", (e) => {
+  // Fetch by searching bar
+  e.preventDefault()
+  resetSwiper(swiper1)
+  fetchBySearch(searchingBar.value)
+}) 
