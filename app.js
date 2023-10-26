@@ -61,6 +61,7 @@ let actionGenre = genreUL.children[2];
 let romanceGenre = genreUL.children[3];
 let fantasyGenre = genreUL.children[4];
 let animationGenre = genreUL.children[5];
+let textGenre = document.querySelector(".text-genre");
 let genres = {
   id28: "Action",
   id12: "Adventure",
@@ -114,6 +115,7 @@ let fetchByGenre = async (genreId) => {
 
 let fetchLatest = async () => {
   try {
+    let today = Date()
     let res = await fetch(``, options)
     let data = await res.json()
     let arrayData = data.results;
@@ -266,46 +268,52 @@ let registerCheck = () => {
 
 // Actions
 
-resetSwiper(swiper2)
-fetchLatest()
-resetSwiper(swiper3)
-fetchByGenre(35)
+resetSwiper(swiper2);
+fetchLatest();
+resetSwiper(swiper3);
+fetchByGenre(35);
 
 document.addEventListener("click", (e) => {
   if (e.target.matches(".btn-search")) {
     // Fetch by searching bar
-    resetSwiper(swiper1)
-    fetchBySearch(searchingBar.value)
+    resetSwiper(swiper1);
+    fetchBySearch(searchingBar.value);
   } else if (e.target == register || e.target == register.children[0] || e.target == footerRegister || e.target == footerRegister.children[0]) {
     // Open Register Modal
-    registerModal()
+    registerModal();
   } else if (e.target == signIn || e.target == signIn.children[0] || e.target == footerSignIn || e.target == footerSignIn.children[0]) {
     // Open Login Modal
-    loginModal()
+    loginModal();
   } else if (e.target == comedyGenre) {
     // Fetch comedy
-    resetSwiper(swiper3)
+    resetSwiper(swiper3);
+    textGenre.textContent = "Comedy";
     fetchByGenre(35)
   } else if (e.target == dramaGenre) {
     // Fetch drama
-    resetSwiper(swiper3)
-    fetchByGenre(18)
+    resetSwiper(swiper3);
+    textGenre.textContent = "Drama"
+    fetchByGenre(18);
   } else if (e.target == actionGenre) {
     // Fetch action
-    resetSwiper(swiper3)
-    fetchByGenre(28)
+    resetSwiper(swiper3);
+    textGenre.textContent = "Action"
+    fetchByGenre(28);
   } else if (e.target == romanceGenre) {
     // Fetch fantasy
-    resetSwiper(swiper3)
-    fetchByGenre(10749)
+    resetSwiper(swiper3);
+    textGenre.textContent = "Romance"
+    fetchByGenre(10749);
   } else if (e.target == fantasyGenre) {
     // Fetch fantasy
-    resetSwiper(swiper3)
-    fetchByGenre(14)
+    resetSwiper(swiper3);
+    textGenre.textContent = "Fantasy"
+    fetchByGenre(14);
   } else if (e.target == animationGenre) {
     // Fetch animation
-    resetSwiper(swiper3)
-    fetchByGenre(16)
+    resetSwiper(swiper3);
+    textGenre.textContent = "Animation"
+    fetchByGenre(16);
   }
 })
 search.addEventListener("change", (e) => {
