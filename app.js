@@ -167,21 +167,16 @@ let createSlide = (element, swiper) => {
 }
 
 let createOver = (element, swiperSlide) => {
-  let movieImg = img(element);
   let slideImg = swiperSlide.children[0].querySelector("img");
-  slideImg.src = movieImg;
-  let title = titleFunc(element);
+  slideImg.src = img(element);
   let slideTitle = swiperSlide.querySelector("h1");
-  slideTitle.textContent = title;
-  let year = yearFunc(element);
+  slideTitle.textContent = titleFunc(element);
   let slideYear = swiperSlide.querySelector("h2");
-  slideYear.textContent = year;
-  let genre = genreFunc(element);
+  slideYear.textContent = yearFunc(element);
   let slideGenre = swiperSlide.querySelector("h3");
-  slideGenre.textContent = genre;
-  let rate = rateFunc(element);
+  slideGenre.textContent = genreFunc(element);
   let slideRate = swiperSlide.querySelector("h4");
-  slideRate.textContent = rate;
+  slideRate.textContent = rateFunc(element);
 }
 
 let resetSwiper = (swiper) => {
