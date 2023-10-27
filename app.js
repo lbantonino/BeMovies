@@ -169,13 +169,14 @@ let overviewFunc = (element) => {
 }
 
 let createSlide = (element, swiper) => {
-  let template = document.querySelector("#swiper-template")
+  let template = document.querySelector("#swiper-template");
   let newDiv = document.createElement("div");
   let swiperSlide = swiper.appendChild(newDiv);
   swiperSlide.classList.add("swiper-slide");
   swiperSlide.innerHTML = template.innerHTML;
-  createOver(element, swiperSlide)
-  createPopup(element, swiperSlide)
+  createOver(element, swiperSlide);
+  overFunc(swiperSlide);
+  createPopup(element, swiperSlide);
 }
 
 let createOver = (element, swiperSlide) => {
@@ -189,6 +190,22 @@ let createOver = (element, swiperSlide) => {
   slideGenre.textContent = genreFunc(element);
   let slideRate = swiperSlide.querySelector("h4");
   slideRate.textContent = rateFunc(element);
+}
+
+let overFunc = (slide) => {
+  let over = slide.querySelector(".film-poster-hover");
+  over.style.width = "100%";
+  over.style.height = "100%";
+  over.style.backgroundColor = "rgba(0,0,0,0.9)";
+  over.style.left = "0px";
+  over.style.marginTop = "0px";
+  over.style.zIndex = "-1"
+  slide.addEventListener("mouseenter", () => {
+      over.style.zIndex = "0"
+  })
+  slide.addEventListener("mouseleave", () => {
+    over.style.zIndex = "-1"
+  })
 }
 
 let createPopup = (element, slide) => {
@@ -234,12 +251,15 @@ let loginModal = () => {
   loginCheck()
   document.addEventListener("click", (e) => {
     if (e.target === signInButton) {
-      let modalW = document.querySelector(".popup").parentElement;
-      modalW.remove()
+      modal.remove()
       registerModal()
     }
   })
-  
+  let signUp = document.querySelector(".signup").children[0];
+  signUp.onclick = () => {
+    modal.remove()
+    registerModal()
+  }
 }
 
 let registerModal = () => {
@@ -249,6 +269,11 @@ let registerModal = () => {
   modal.innerHTML = template.innerHTML;
   closeModal()
   registerCheck()
+  let login = document.querySelector(".login-register").children[0];
+  login.onclick = () => {
+    modal.remove()
+    loginModal()
+  }
 }
 
 let closeModal = () => {
