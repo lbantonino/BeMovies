@@ -143,8 +143,12 @@ let genreFunc = (element) => {
 }
 
 let img = (element) => {
-  let url = element.poster_path
+  let url = element.poster_path;
+  if (!url) {
+    return "https://static.displate.com/280x392/displate/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg"
+  } else {
   return `https://image.tmdb.org/t/p/original${url}`
+  }
 }
 
 let titleFunc = (element) => {
@@ -344,57 +348,61 @@ let registerCheck = () => {
 
 // Actions
 
-resetSwiper(swiper2);
-fetchLatest();
-resetSwiper(swiper3);
-fetchByGenre(35);
+document.addEventListener("DOMContentLoaded", () => {
+  resetSwiper(swiper2);
+  fetchLatest();
+  resetSwiper(swiper3);
+  fetchByGenre(35);
 
-document.addEventListener("click", (e) => {
-  e.preventDefault()
-  if (e.target.matches(".btn-search")) {
+  document.addEventListener("click", (e) => {
+    e.preventDefault()
+    if (e.target.matches(".btn-search")) {
+      // Fetch by searching bar
+      resetSwiper(swiper1);
+      fetchBySearch(searchingBar.value);
+    } else if (e.target == register || e.target == register.children[0] || e.target == footerRegister || e.target == footerRegister.children[0]) {
+      // Open Register Modal
+      registerModal();
+    } else if (e.target == signIn || e.target == signIn.children[0] || e.target == footerSignIn || e.target == footerSignIn.children[0]) {
+      // Open Login Modal
+      loginModal();
+    } else if (e.target == comedyGenre) {
+      // Fetch comedy
+      resetSwiper(swiper3);
+      textGenre.textContent = "Comedy";
+      fetchByGenre(35)
+    } else if (e.target == dramaGenre) {
+      // Fetch drama
+      resetSwiper(swiper3);
+      textGenre.textContent = "Drama"
+      fetchByGenre(18);
+    } else if (e.target == actionGenre) {
+      // Fetch action
+      resetSwiper(swiper3);
+      textGenre.textContent = "Action"
+      fetchByGenre(28);
+    } else if (e.target == romanceGenre) {
+      // Fetch fantasy
+      resetSwiper(swiper3);
+      textGenre.textContent = "Romance"
+      fetchByGenre(10749);
+    } else if (e.target == fantasyGenre) {
+      // Fetch fantasy
+      resetSwiper(swiper3);
+      textGenre.textContent = "Fantasy"
+      fetchByGenre(14);
+    } else if (e.target == animationGenre) {
+      // Fetch animation
+      resetSwiper(swiper3);
+      textGenre.textContent = "Animation"
+      fetchByGenre(16);
+    }
+  })
+  searchingBar.addEventListener("keydown", (e) => {
     // Fetch by searching bar
-    resetSwiper(swiper1);
-    fetchBySearch(searchingBar.value);
-  } else if (e.target == register || e.target == register.children[0] || e.target == footerRegister || e.target == footerRegister.children[0]) {
-    // Open Register Modal
-    registerModal();
-  } else if (e.target == signIn || e.target == signIn.children[0] || e.target == footerSignIn || e.target == footerSignIn.children[0]) {
-    // Open Login Modal
-    loginModal();
-  } else if (e.target == comedyGenre) {
-    // Fetch comedy
-    resetSwiper(swiper3);
-    textGenre.textContent = "Comedy";
-    fetchByGenre(35)
-  } else if (e.target == dramaGenre) {
-    // Fetch drama
-    resetSwiper(swiper3);
-    textGenre.textContent = "Drama"
-    fetchByGenre(18);
-  } else if (e.target == actionGenre) {
-    // Fetch action
-    resetSwiper(swiper3);
-    textGenre.textContent = "Action"
-    fetchByGenre(28);
-  } else if (e.target == romanceGenre) {
-    // Fetch fantasy
-    resetSwiper(swiper3);
-    textGenre.textContent = "Romance"
-    fetchByGenre(10749);
-  } else if (e.target == fantasyGenre) {
-    // Fetch fantasy
-    resetSwiper(swiper3);
-    textGenre.textContent = "Fantasy"
-    fetchByGenre(14);
-  } else if (e.target == animationGenre) {
-    // Fetch animation
-    resetSwiper(swiper3);
-    textGenre.textContent = "Animation"
-    fetchByGenre(16);
-  }
-})
-search.addEventListener("change", (e) => {
-  // Fetch by searching bar
-  e.preventDefault()
-  fetchBySearch(searchingBar.value)
-}) 
+    if (e.keyCode === 13) {
+      resetSwiper(swiper1);
+      fetchBySearch(searchingBar.value)
+    }
+  }) 
+});
