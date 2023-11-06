@@ -40,7 +40,9 @@ const options = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTJjZjE0ZDQzNzQyZjJiMWE1ZWFjMmNkMmQxMDU3MiIsInN1YiI6IjY1MzhjMDEzYWUzNjY4MDBhZGE4MDIzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.L1jWmZ_mygneYzG_Jd0RZ57Avi5K1qyiSvvFXwl6ybc'
   }
 }
-let body = document.querySelector("body")
+let body = document.querySelector("body");
+let divBurger = document.querySelector(".hamburger");
+let burger = divBurger.querySelector("span")
 let menu = document.querySelector(".menu");
 let register = menu.children[3];
 let signIn = menu.children[4];
@@ -198,12 +200,6 @@ let createOver = (element, swiperSlide) => {
 
 let overFunc = (slide) => {
   let over = slide.querySelector(".film-poster-hover");
-  over.style.width = "100%";
-  over.style.height = "100%";
-  over.style.backgroundColor = "rgba(0,0,0,0.9)";
-  over.style.left = "0px";
-  over.style.marginTop = "0px";
-  over.style.zIndex = "-1"
   slide.addEventListener("mouseenter", () => {
       over.style.zIndex = "0"
   })
@@ -346,6 +342,21 @@ let registerCheck = () => {
   })
 }
 
+let createBurger = () => {
+  let newDiv = document.createElement("div");
+  let modal = body.appendChild(newDiv);
+  let menu = document.querySelector('.menu');
+  modal.id = "modalBurger";
+  modal.innerHTML = menu.innerHTML;
+  modal.style.position = "fixed";
+  modal.style.backgroundColor = "red";
+  document.addEventListener("click", (e) => {
+    if (e.target !== modal || e.target !== modal.children) {
+      modal.remove()
+    }
+  })
+}
+
 // Actions
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -355,7 +366,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchByGenre(35);
 
   document.addEventListener("click", (e) => {
-    e.preventDefault()
     if (e.target.matches(".btn-search")) {
       // Fetch by searching bar
       resetSwiper(swiper1);
@@ -366,6 +376,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (e.target == signIn || e.target == signIn.children[0] || e.target == footerSignIn || e.target == footerSignIn.children[0]) {
       // Open Login Modal
       loginModal();
+    } else if (e.target == burger || e.target == divBurger) {
+      //Create Burger
+      console.log("burger")
+      createBurger()
     } else if (e.target == comedyGenre) {
       // Fetch comedy
       resetSwiper(swiper3);
@@ -400,7 +414,8 @@ document.addEventListener("DOMContentLoaded", () => {
   })
   searchingBar.addEventListener("keydown", (e) => {
     // Fetch by searching bar
-    if (e.keyCode === 13) {
+    if (e.key === "Enter") {
+      e.preventDefault()
       resetSwiper(swiper1);
       fetchBySearch(searchingBar.value)
     }
