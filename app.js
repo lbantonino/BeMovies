@@ -343,16 +343,12 @@ let registerCheck = () => {
 }
 
 let createBurger = () => {
-  let newDiv = document.createElement("div");
-  let modal = body.appendChild(newDiv);
-  let menu = document.querySelector('.menu');
-  modal.id = "modalBurger";
-  modal.innerHTML = menu.innerHTML;
-  modal.style.position = "fixed";
-  modal.style.backgroundColor = "red";
+  let content = document.querySelector('#modal-menu-hamburger').content;
+  body.appendChild(document.importNode(content, true))
   document.addEventListener("click", (e) => {
-    if (e.target !== modal || e.target !== modal.children) {
-      modal.remove()
+    if (e.target.matches('.cross-hamburger') || e.target.matches("a")) {
+      let modal = document.querySelector('.modal-menu');
+      modal.remove();
     }
   })
 }
@@ -370,15 +366,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // Fetch by searching bar
       resetSwiper(swiper1);
       fetchBySearch(searchingBar.value);
-    } else if (e.target == register || e.target == register.children[0] || e.target == footerRegister || e.target == footerRegister.children[0]) {
+    } else if (e.target.matches(".register1")) {
       // Open Register Modal
       registerModal();
-    } else if (e.target == signIn || e.target == signIn.children[0] || e.target == footerSignIn || e.target == footerSignIn.children[0]) {
+    } else if (e.target.matches(".signin1")) {
       // Open Login Modal
       loginModal();
     } else if (e.target == burger || e.target == divBurger) {
       //Create Burger
-      console.log("burger")
       createBurger()
     } else if (e.target == comedyGenre) {
       // Fetch comedy
