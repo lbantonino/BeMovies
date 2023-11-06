@@ -165,8 +165,8 @@ let yearFunc = (element) => {
 }
 
 let rateFunc = (element) => {
-  let rate = element.vote_average;
-  return rate
+  let rate = parseFloat(element.vote_average);
+  return rate.toFixed(1)
 }
 
 let overviewFunc = (element) => {
