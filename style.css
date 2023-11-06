@@ -706,7 +706,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(254, 79, 79, 0.719);
+    background-color: rgba(14, 14, 14, 0.821)
 }
 .popup-login{
     top: 80px;
@@ -722,6 +722,7 @@ footer {
     
 }
 .cross {
+    z-index: 3;
     margin: 10px 0 40px 15px;
 }
 .cross:hover{
@@ -993,6 +994,7 @@ margin-bottom: 10px;
     position: fixed;
     z-index: 2;
     top: 0;
+    bottom: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -1024,6 +1026,9 @@ margin-bottom: 10px;
     }
 }
 
+.hamburger{
+    cursor: pointer;
+}
 
 
 .menu-hamburger li a:hover{
@@ -1040,11 +1045,21 @@ height: 100%;
 width: 100%;
 }
 .film-poster-hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     color: white;
     top: 0;
     left: 82.5px;
     margin-top: 75px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    left: 0px;
+    margin-top: 0px;
+    z-index: -1;
 }
 
 .film-poster-hover h1{ 
@@ -1074,12 +1089,8 @@ width: 100%;
 .film-poster-hover img {
     width: 35px;
     height: 35px;
-    position: absolute;
-    left: 10px;
 }
 .film-poster-hover h4 {
-    top: 180px;
-    position:absolute;
     color: #C00;
     text-align: center;
     font-family: Inter;
