@@ -7,6 +7,7 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".button-prev",
         clickable: true,
       },
+      loop: true,
   });
 
   var newSwiper = new Swiper(".mySwiper1", {
@@ -18,6 +19,7 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".button-prev1",
         clickable: true,
       },
+      loop: true,
   });
 
   var newSwiper1 = new Swiper(".mySwiper2", {
@@ -29,6 +31,7 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".button-prev2",
         clickable: true,
       },
+      loop:true,
   });
 
 // Variables
