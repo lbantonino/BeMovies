@@ -2,7 +2,7 @@ var swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
     spaceBetween: 19,
     mousewheel: true,
-      loop: true,
+      // loop: true,
     navigation: {
         nextEl: ".button-next",
         prevEl: ".button-prev",
@@ -14,7 +14,8 @@ var swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
     spaceBetween: 19,
     mousewheel: true,
-    loop: true,
+    // loop: true,
+    loopAdditionalSlides: 5,
     navigation: {
         nextEl: ".button-next1",
         prevEl: ".button-prev1",
@@ -26,7 +27,7 @@ var swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
     spaceBetween: 19,
     mousewheel: true,
-    loop: true,
+    // loop: true,
     navigation: {
         nextEl: ".button-next2",
         prevEl: ".button-prev2",
