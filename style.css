@@ -21,7 +21,6 @@ a {
     }*/
     @media screen and (min-width : 320px) and (max-width : 1024px) {
         max-width: 1080px;
-        margin: 0 20px;
     } 
 }
 body{
@@ -46,10 +45,11 @@ header {
     align-items: center;
     justify-content: center;
     margin-bottom: 73px;
-    @media screen and (max-width : 850px) {
+    @media screen and (max-width : 1079px) {
         max-width: 100vw;
         position: relative;
         margin-bottom: 15px;
+        padding: 0 20px;
     }
 }
 .header-nav {
@@ -145,8 +145,8 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    @media screen and (max-width : 850px){
-        margin-bottom: 30px; 
+    @media screen and (max-width : 1279px){
+        max-width: 100vw;
     }
 }
 form{
@@ -195,6 +195,9 @@ form{
     @media screen and (max-width : 850px){
         display: flex;
         flex-direction: column;
+    }
+    @media screen and (max-width : 1279px){
+        max-width: 100vw;
     }
 
 }
@@ -286,6 +289,9 @@ form{
     @media screen and (max-width: 500px){
         margin-bottom: 41px ;
     }
+    @media screen and (max-width : 1279px){
+        max-width: 100vw;
+    }
 }
 .text-latest-releases{
     font-family: 'Inter', sans-serif;
@@ -367,6 +373,9 @@ form{
 .section-movies-genre{
 
     margin-bottom: 110px ;
+    @media screen and (max-width : 1279px){
+        max-width: 100vw;
+    }
 }
 .category {
     display: flex;
@@ -374,7 +383,7 @@ form{
     justify-content: center;
     flex-direction: column;
     @media screen and (max-width : 850px){
-        margin: 0 5px;
+        padding: 0 5px;
     }
 }
 .moviesbygenre{
@@ -390,6 +399,7 @@ form{
 }
 .genre {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     font-weight: 400;
     font-size: 16px ;
@@ -400,7 +410,7 @@ form{
         gap: 30px;
         padding: 0 5px;
     }
-    @media screen and (max-width : 500px){
+    @media screen and (max-width : 570px){
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         text-align: center;
@@ -432,6 +442,9 @@ form{
     font-weight: 400;
     padding-bottom: 10px;
     padding-left: 43px;
+    @media screen and (max-width : 1024px){
+        display: none;
+    }
 }
 .section-movies-genre .swiper {
     width: 92%;
