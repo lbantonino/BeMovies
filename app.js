@@ -353,6 +353,13 @@ let createBurger = () => {
   })
 }
 
+let clickedColor = (target) => {
+  for (i = 0; i < 6; i++) {
+    genreUL.children[i].removeAttribute("id")
+  }
+  target.id = "genre-clicked";
+}
+
 // Actions
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -378,31 +385,37 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (e.target == comedyGenre) {
       // Fetch comedy
       resetSwiper(swiper3);
+      clickedColor(e.target);
       textGenre.textContent = "Comedy";
       fetchByGenre(35)
     } else if (e.target == dramaGenre) {
       // Fetch drama
       resetSwiper(swiper3);
-      textGenre.textContent = "Drama"
+      clickedColor(e.target);
+      textGenre.textContent = "Drama";
       fetchByGenre(18);
     } else if (e.target == actionGenre) {
       // Fetch action
       resetSwiper(swiper3);
-      textGenre.textContent = "Action"
+      clickedColor(e.target);
+      textGenre.textContent = "Action";
       fetchByGenre(28);
     } else if (e.target == romanceGenre) {
       // Fetch fantasy
       resetSwiper(swiper3);
+      clickedColor(e.target);
       textGenre.textContent = "Romance"
       fetchByGenre(10749);
     } else if (e.target == fantasyGenre) {
       // Fetch fantasy
       resetSwiper(swiper3);
+      clickedColor(e.target);
       textGenre.textContent = "Fantasy"
       fetchByGenre(14);
     } else if (e.target == animationGenre) {
       // Fetch animation
       resetSwiper(swiper3);
+      clickedColor(e.target);
       textGenre.textContent = "Animation"
       fetchByGenre(16);
     }
