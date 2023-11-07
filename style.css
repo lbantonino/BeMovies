@@ -1043,6 +1043,10 @@ letter-spacing: 0.6px;
     font-weight: 700;
     letter-spacing: 0.6px;
     text-transform: uppercase;
+    @media screen and (max-width: 645px ){
+        text-align: center;
+    }
+    
 }
 .movie-year{
     color: #E9E9E9;
