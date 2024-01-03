@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>BeMovies</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- header / logo et nav bar-->
     <header id="header">
         <div class="container">
             <nav class="header-nav">
-            <div class="logo">
-                <h1><a href="#"><span>BE</span>MOVIES</a></h1>
-            </div>
+                <div class="logo">
+                    <h1><a href="index.html"><span>BE</span>MOVIES</a></h1>
+                </div>
                 <!-- Menu hamburger (responsive)-->
                 <div class="hamburger"> <span>&#9776</span></div>
                 <ul class="menu">
@@ -27,13 +29,14 @@
             </nav>
         </div>
     </header>
-    
+
     <main>
         <!-- section pour search (form)-->
         <section class="container section-search" id="search-id">
             <form action="">
                 <input type="text" name="search" id="search" placeholder="movie, category, ...">
-                <button type="button" class="btn-search"><img src="images/fleche.png" alt="" class="img-fleche"></button>
+                <button type="button" class="btn-search"><img src="images/fleche.png" alt=""
+                        class="img-fleche"></button>
             </form>
         </section>
 
@@ -44,23 +47,23 @@
                 <div class="swiper-wrapper">
                 </div>
             </div>
-                <div class="fleche-swiper">
-                    <div class="button-prev"><img src="images/Vector.svg" alt=""></div>
-                    <div class="button-next"><img src="images/Vector-next.svg" alt=""></div>
-                </div>
+            <div class="fleche-swiper">
+                <div class="button-prev"><img src="images/Vector.svg" alt=""></div>
+                <div class="button-next"><img src="images/Vector-next.svg" alt=""></div>
+            </div>
         </section>
 
         <template id="swiper-template">
-        <div class="swiper-hover">
-            <img src="/img/test.jpg" alt="film poster of the movie">
-            <div class="film-poster-hover">
-                <h1>Title</h1>
-                <h2>years</h2>
-                <h3>genre</h3>
-                <img src="images/star.svg" alt="star">
-                <h4>rate</h4>
+            <div class="swiper-hover">
+                <img src="/img/test.jpg" alt="film poster of the movie">
+                <div class="film-poster-hover">
+                    <h1>Title</h1>
+                    <h2>years</h2>
+                    <h3>genre</h3>
+                    <img src="images/star.svg" alt="star">
+                    <h4>rate</h4>
+                </div>
             </div>
-        </div>
         </template>
         <!--section lié à aux latest releases (dans app.js (ligne 11) -> mySwiper1)-->
         <section class="container section-latest-releases" id="latest-id">
@@ -70,7 +73,7 @@
                     <div class="swiper-slide"><img src="/images/films-essais/Rectangle 6.png" alt=""></div>
                     <div class="swiper-slide"><img src="images/films-essais/Rectangle 7.png" alt=""></div>
                     <div class="swiper-slide"><img src="/images/films-essais/Rectangle 8.png" alt=""></div>
-                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 9.png" alt=""></div> 
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 9.png" alt=""></div>
                     <div class="swiper-slide">Slide 5</div>
                     <div class="swiper-slide">Slide 6</div>
                     <div class="swiper-slide">Slide 7</div>
@@ -78,10 +81,10 @@
                     <div class="swiper-slide">Slide 9</div>
                 </div>
             </div>
-                <div class="fleche-swiper1">
-                    <div class="button-prev1"><img src="images/Vector.svg" alt=""></div>
-                    <div class="button-next1"><img src="images/Vector-next.svg" alt=""></div>
-                </div>
+            <div class="fleche-swiper1">
+                <div class="button-prev1"><img src="images/Vector.svg" alt=""></div>
+                <div class="button-next1"><img src="images/Vector-next.svg" alt=""></div>
+            </div>
         </section>
 
         <!--section lié à au Movies by genre  (dans app.js (ligne ??) -> mySwiper2)-->
@@ -104,7 +107,7 @@
                     <div class="swiper-slide"><img src="/images/films-essais/Rectangle10.png" alt=""></div>
                     <div class="swiper-slide"><img src="images/films-essais/Rectangle11.png" alt=""></div>
                     <div class="swiper-slide"><img src="/images/films-essais/Rectangle12.png" alt=""></div>
-                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 8.png" alt=""></div> 
+                    <div class="swiper-slide"><img src="/images/films-essais/Rectangle 8.png" alt=""></div>
                     <div class="swiper-slide">Slide 5</div>
                     <div class="swiper-slide">Slide 6</div>
                     <div class="swiper-slide">Slide 7</div>
@@ -121,9 +124,9 @@
 
     <footer>
         <div class="container">
-                <nav class="footer-nav">
+            <nav class="footer-nav">
                 <div class="logo">
-                    <h1><a href="#header"><span>BE</span>MOVIES</a></h1>
+                    <h1><a href="index.html"><span>BE</span>MOVIES</a></h1>
                 </div>
                 <ul class="footer-menu">
                     <li><a href="#search-id">SEARCH</a></li>
@@ -133,68 +136,76 @@
                     <li><a href="#signin-id">SIGN IN</a></li>
                 </ul>
                 <h3 class="copyright">@2023 - All rights reserved</h3>
-                </nav>
+            </nav>
         </div>
     </footer>
     <!-- template who's appear to click to signin (login)-->
-    <template id="popup-modal-login"> 
-    <div class="popup">
-        <div class="popup-login">
-            <div class="contenu-popup">
-                
-                <div class="cross"><img src="images/POPUP REGISTER/Group 9.svg" alt=""></div>
-                <div class="btn-group">
-                <div class="signup"><h2>SIGNUP</h2></div>
-                <div class="login"><h2>LOGIN</h2></div>
-                </div>
-                <div class="form-group1">
-                <form action="" class="form-login">
-                    <input type="text" name="username" id="username" placeholder="Username">
-                    <input type="password" name="password" id="password" placeholder="Password">
-                    <div class="remember">
-                        <input type="checkbox" name="remember" id="remember">
-                        <label for="remember" class="remember-me">Remember me</label>
+    <template id="popup-modal-login">
+        <div class="popup">
+            <div class="popup-login">
+                <div class="contenu-popup">
+
+                    <div class="cross"><img src="images/POPUP REGISTER/Group 9.svg" alt=""></div>
+                    <div class="btn-group">
+                        <div class="signup">
+                            <h2>SIGNUP</h2>
+                        </div>
+                        <div class="login">
+                            <h2>LOGIN</h2>
+                        </div>
                     </div>
-                </form>
-                </div>
-                <div class="btn-forgot">
-                    <div class="btnlogin-1">
-                    <button class="btn-login">LOGIN</button>
+                    <div class="form-group1">
+                        <form action="" class="form-login">
+                            <input type="text" name="username" id="username" placeholder="Username">
+                            <input type="password" name="password" id="password" placeholder="Password">
+                            <div class="remember">
+                                <input type="checkbox" name="remember" id="remember">
+                                <label for="remember" class="remember-me">Remember me</label>
+                            </div>
+                        </form>
                     </div>
-                <div class="btn-forgot2">
-                <p class="forgot">I forgot my password</p>
-                <p class="new-memeber">Not a member yer ? <span>Sign up</span></p>
-                </div>
-                </div>
+                    <div class="btn-forgot">
+                        <div class="btnlogin-1">
+                            <button class="btn-login">LOGIN</button>
+                        </div>
+                        <div class="btn-forgot2">
+                            <p class="forgot">I forgot my password</p>
+                            <p class="new-memeber">Not a member yer ? <span>Sign up</span></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
     </template>
     <!-- template who's appear to click to Sign up / register (register)-->
-    <template id="popup-modal-register"> 
+    <template id="popup-modal-register">
         <div class="popup">
             <div class="popup-register">
                 <div class="contenu-popup-register">
                     <div class="cross"><img src="images/POPUP REGISTER/Group 9.svg" alt=""></div>
                     <div class="btn-group1">
-                    <div class="signup-register"><h2>SIGNUP</h2></div>
-                    <div class="login-register"><h2>LOGIN</h2></div>
+                        <div class="signup-register">
+                            <h2>SIGNUP</h2>
+                        </div>
+                        <div class="login-register">
+                            <h2>LOGIN</h2>
+                        </div>
                     </div>
                     <div class="form-group">
-                    <form action="" class="form-login-register">
-                        <input type="text" name="username" id="username" placeholder="Username">
-                        <input type="text" name="username" id="email" placeholder="Email">
-                        <input type="password" name="password" id="password1" placeholder="Password">
-                        <input type="password" name="password" id="password2" placeholder=" Confirm your Password">
-                    </form>
-                    <button class="btn-register">SIGN UP</button>
-                </div>
+                        <form action="" class="form-login-register">
+                            <input type="text" name="username" id="username" placeholder="Username">
+                            <input type="text" name="username" id="email" placeholder="Email">
+                            <input type="password" name="password" id="password1" placeholder="Password">
+                            <input type="password" name="password" id="password2" placeholder=" Confirm your Password">
+                        </form>
+                        <button class="btn-register">SIGN UP</button>
+                    </div>
                 </div>
             </div>
         </div>
     </template>
-<!-- template who's appear to click to see card of the movie/ (picture - synopsis - rate - directors)-->
+    <!-- template who's appear to click to see card of the movie/ (picture - synopsis - rate - directors)-->
     <template id="popup-card-movie">
         <div class="popup-movie">
             <div class="card-movie">
@@ -202,21 +213,25 @@
                 <div class="content-card">
                     <div class="images-movie"></div>
                     <div class="card-text">
-                    <h2 class="movie-title">Title</h2>
-                    <p class="movie-year">year</p>
-                    <div class="stars-opinion">
-                        <img src="images/star.svg" alt="">
-                        <p class="opinion">8.7</p>
+                        <h2 class="movie-title">Title</h2>
+                        <p class="movie-year">year</p>
+                        <div class="stars-opinion">
+                            <img src="images/star.svg" alt="">
+                            <p class="opinion">8.7</p>
+                        </div>
+                        <h3 class="genre-movie">Genre / type</h3>
+                        <p class="synopsis">Spanning the years 1945 to 1955, a chronicle of the fictional
+                            Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone
+                            barely survives an attempt on his life, his youngest son, Michael steps in to take care of
+                            the would-be killers, launching a campaign of bloody revenge.</p>
+                        <p class="cast-movie"><span>cast:</span>&nbsp;&nbsp;&nbsp;&nbsp;Marlon Brando, Al Pacino, James
+                            Caan,Robert Duvall</p>
                     </div>
-                    <h3 class="genre-movie">Genre / type</h3>
-                    <p class="synopsis">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.</p>
-                    <p class="cast-movie"><span>cast:</span>&nbsp;&nbsp;&nbsp;&nbsp;Marlon Brando, Al Pacino, James Caan,Robert Duvall</p>
-                    </div>
-                </div>    
+                </div>
             </div>
         </div>
     </template>
-<!-- template who's appear to click to the modal with hamburger menu-->
+    <!-- template who's appear to click to the modal with hamburger menu-->
     <template id="modal-menu-hamburger">
         <div class="modal-menu">
             <div class="cross-hamburger">X</div>
@@ -232,4 +247,5 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>

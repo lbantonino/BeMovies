@@ -1,35 +1,39 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
-    spaceBetween: 19,
-    mousewheel: true,
-    navigation: {
-        nextEl: ".button-next",
-        prevEl: ".button-prev",
-        clickable: true,
-      },
-  });
+  slidesPerView: 4,
+  spaceBetween: 19,
+  mousewheel: true,
+  loop: true,
+  navigation: {
+    nextEl: ".button-next",
+    prevEl: ".button-prev",
+    clickable: true,
 
-  var newSwiper = new Swiper(".mySwiper1", {
-    slidesPerView: 4,
-    spaceBetween: 19,
-    mousewheel: true,
-    navigation: {
-        nextEl: ".button-next1",
-        prevEl: ".button-prev1",
-        clickable: true,
-      },
-  });
+  },
+});
 
-  var newSwiper1 = new Swiper(".mySwiper2", {
-    slidesPerView: 4,
-    spaceBetween: 19,
-    mousewheel: true, 
-    navigation: {
-        nextEl: ".button-next2",
-        prevEl: ".button-prev2",
-        clickable: true,
-      },
-  });
+var newSwiper = new Swiper(".mySwiper1", {
+  slidesPerView: 4,
+  spaceBetween: 19,
+  mousewheel: true,
+  loop: true,
+  navigation: {
+    nextEl: ".button-next1",
+    prevEl: ".button-prev1",
+    clickable: true,
+  },
+});
+
+var newSwiper1 = new Swiper(".mySwiper2", {
+  slidesPerView: 4,
+  spaceBetween: 19,
+  mousewheel: true,
+  loop: true,
+  navigation: {
+    nextEl: ".button-next2",
+    prevEl: ".button-prev2",
+    clickable: true,
+  },
+});
 
 // Variables
 
@@ -101,7 +105,7 @@ let fetchBySearch = async (search) => {
     searchingText.textContent = `Results for “${search}”`;
     searchingText.style.display = "block"
   } catch (error) {
-      console.log(error)
+    console.log(error)
   }
 }
 
@@ -114,22 +118,22 @@ let fetchByGenre = async (genreId) => {
       createSlide(element, swiper3)
     });
   } catch (error) {
-      console.log(error)
+    console.log(error)
   }
 }
 
 let fetchLatest = async () => {
   try {
     let today = new Date()
-    let lastMonth  = new Date(); lastMonth.setMonth(today.getMonth()-1);
-    let res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&release_date.gte=${lastMonth.toISOString().slice(0,10)}&release_date.lte=${today.toISOString().slice(0,10)}&sort_by=popularity.desc`, options)
+    let lastMonth = new Date(); lastMonth.setMonth(today.getMonth() - 1);
+    let res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&release_date.gte=${lastMonth.toISOString().slice(0, 10)}&release_date.lte=${today.toISOString().slice(0, 10)}&sort_by=popularity.desc`, options)
     let data = await res.json()
     let arrayData = data.results;
     arrayData.forEach(element => {
       createSlide(element, swiper2)
     });
   } catch (error) {
-      console.log(error)
+    console.log(error)
   }
 }
 
@@ -140,7 +144,7 @@ let genreFunc = (element) => {
     movieGenre.push(genres[`id${cat}`])
   });
   movieGenre = movieGenre.toString()
-  movieGenre = movieGenre.replaceAll(","," / ")
+  movieGenre = movieGenre.replaceAll(",", " / ")
   return movieGenre
 }
 
@@ -149,7 +153,7 @@ let img = (element) => {
   if (!url) {
     return "https://static.displate.com/280x392/displate/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg"
   } else {
-  return `https://image.tmdb.org/t/p/original${url}`
+    return `https://image.tmdb.org/t/p/original${url}`
   }
 }
 
@@ -160,7 +164,7 @@ let titleFunc = (element) => {
 
 let yearFunc = (element) => {
   let date = element.release_date;
-  let year = date.slice(0,4)
+  let year = date.slice(0, 4)
   return year
 }
 
@@ -201,7 +205,7 @@ let createOver = (element, swiperSlide) => {
 let overFunc = (slide) => {
   let over = slide.querySelector(".film-poster-hover");
   slide.addEventListener("mouseenter", () => {
-      over.style.zIndex = "0"
+    over.style.zIndex = "0"
   })
   slide.addEventListener("mouseleave", () => {
     over.style.zIndex = "-1"
@@ -326,14 +330,14 @@ let registerCheck = () => {
   let email = document.querySelector("#email");
   let password1 = document.querySelector("#password1");
   let password2 = document.querySelector("#password2");
-    document.addEventListener("click", (e) => {
-      if (e.target.matches(".btn-register")) {
-        if (username.value.trim() && email.value.trim() && password1.value == password2.value) {
-          let info = {
-            Username: username.value,
-            Email: email.value,
-            Password: password1.value,
-          };
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".btn-register")) {
+      if (username.value.trim() && email.value.trim() && password1.value == password2.value) {
+        let info = {
+          Username: username.value,
+          Email: email.value,
+          Password: password1.value,
+        };
         console.log(info)
         let modal = document.querySelector(".popup").parentElement;
         modal.remove();
@@ -427,5 +431,5 @@ document.addEventListener("DOMContentLoaded", () => {
       resetSwiper(swiper1);
       fetchBySearch(searchingBar.value)
     }
-  }) 
+  })
 });
