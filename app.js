@@ -460,3 +460,14 @@ window.addEventListener('load', function () {
     showLandscapeAlert();
   }
 });
+
+
+function scroll() {
+  if (document.documentElement.scrollTop > 0) {
+    document.documentElement.style.overflowY = "hidden";
+    document.documentElement.style.overflowX = "auto";
+  } else {
+    document.documentElement.style.overflowY = "auto";
+    document.documentElement.style.overflowX = "hidden";
+  }
+}
