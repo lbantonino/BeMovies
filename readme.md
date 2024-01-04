@@ -20,19 +20,22 @@ Here are some images of the project :
 <br>
 <br>
 
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.21.41.png)
+<p align="center">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.01.png">
+</p>
 
+<p align="center">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.41.png">
+</p>
 
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.21.01.png)
+<p align="center">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.54.png">
+</p>
 
+<p align="center">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.22.11.png">
+</p>
 
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.21.54.png)
-
-
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.21.54.png)
-
-
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.22.11.png)
 
 <br>
 <br>
@@ -45,11 +48,24 @@ Here are some images of the project :
 <br>
 <br>
 
+<p align="center">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.18.39.png" width="200">
+</p>
 
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.18.50.png)
 
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.19.01.png)
+<p align="center">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.18.50.png" width="175">
+</p>
 
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.19.18.png)
+<p align="center">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.19.01.png" width="175">
+</p>
 
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.19.26.png)
+
+<p align="center">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.19.18.png" width="175">
+</p>
+
+<p align="center">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.19.26.png" width="175">
+</p>
