@@ -1124,7 +1124,13 @@ footer {
 }
 
 .cross-movie img {
-    width: 150%;
+    @media screen and (max-width: 767px) {
+        width: 30px;
+        height: 30px;
+
+    }
+
+
 }
 
 .content-card {
