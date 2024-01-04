@@ -1,9 +1,12 @@
-# BeMovies
+<h1 align="center"> BEMOVIES </h1>
+
 ---
 
 For a **FRONTEND** project, I built a responsive web application along the same lines as Netflix, using the **TMDB API**. The website offers a selection of films, as well as features such as search, recommendations and categories.
 
 The aim of this application was to retrieve data from the TMDB api (movie api) and to manage this api with the **'FETCH'** action in JavaScript. We also used the **'SwiperJS'** library to scroll movie posters in a carousel.
+
+For this project we worked in collaboration with @qmorineau (https://github.com/qmorineau). The work was divided into two parts.  @qmorineau worked on the javascript part of my html, and I did the javascript part of his html. 
 
 Here's the link to BeMovies: 
 https://lbantonino.github.io/BeMovies/
@@ -14,7 +17,8 @@ Here are some images of the project :
 -----
 <br>
 
-### DESKTOP:
+
+<h3 align="center"> DESKTOP </h3>
 
 <br>
 <br>
@@ -43,7 +47,7 @@ Here are some images of the project :
 -----
 <br>
 
-#### MOBILE:
+<h3 align="center"> MOBILE </h3>
 
 <br>
 <br>
