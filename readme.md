@@ -45,7 +45,6 @@ Here are some images of the project :
 <br>
 <br>
 
-![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.18.39.png)
 
 ![mac bemovies](pictures/Capture%20d’écran%202024-01-04%20à%2023.18.50.png)
 
