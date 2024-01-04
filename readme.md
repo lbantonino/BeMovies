@@ -1,4 +1,4 @@
-<h1 align="center"> BEMOVIES </h1>
+<h1> BEMOVIES </h1>
 
 ---
 
