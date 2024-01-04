@@ -49,23 +49,23 @@ Here are some images of the project :
 <br>
 
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.18.39.png" width="200">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.18.39.png" width="300">
 </p>
 
 
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.18.50.png" width="175">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.18.50.png" width="250">
 </p>
 
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.19.01.png" width="175">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.19.01.png" width="250">
 </p>
 
 
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.19.18.png" width="175">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.19.18.png" width="250">
 </p>
 
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.19.26.png" width="175">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.19.26.png" width="250">
 </p>
