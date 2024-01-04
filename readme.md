@@ -21,19 +21,19 @@ Here are some images of the project :
 <br>
 
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.01.png">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.01.png" width="300">
 </p>
-
+<br>
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.41.png">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.41.png" width="300">
 </p>
-
+<br>
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.54.png">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.54.png"width="310">
 </p>
-
+<br>
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.22.11.png">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.22.11.png"width="300">
 </p>
 
 
@@ -51,21 +51,21 @@ Here are some images of the project :
 <p align="center">
     <img src="pictures/Capture d’écran 2024-01-04 à 23.18.39.png" width="300">
 </p>
-
+<br>
 
 <p align="center">
     <img src="pictures/Capture d’écran 2024-01-04 à 23.18.50.png" width="250">
 </p>
-
+<br>
 <p align="center">
     <img src="pictures/Capture d’écran 2024-01-04 à 23.19.01.png" width="250">
 </p>
 
-
+<br>
 <p align="center">
     <img src="pictures/Capture d’écran 2024-01-04 à 23.19.18.png" width="250">
 </p>
-
+<br>
 <p align="center">
     <img src="pictures/Capture d’écran 2024-01-04 à 23.19.26.png" width="250">
 </p>
