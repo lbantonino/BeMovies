@@ -21,19 +21,19 @@ Here are some images of the project :
 <br>
 
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.01.png" width="400">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.01.png" width="500">
 </p>
 <br>
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.41.png" width="400">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.41.png" width="500">
 </p>
 <br>
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.54.png"width="410">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.21.54.png"width="510">
 </p>
 <br>
 <p align="center">
-    <img src="pictures/Capture d’écran 2024-01-04 à 23.22.11.png"width="400">
+    <img src="pictures/Capture d’écran 2024-01-04 à 23.22.11.png"width="500">
 </p>
 
 
