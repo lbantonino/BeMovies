@@ -214,11 +214,12 @@ let overFunc = (slide) => {
 
 let createPopup = (element, slide) => {
   slide.addEventListener("click", () => {
+    let body = document.querySelector("body");
+    body.style.overflowY = "hidden";
     let template = document.querySelector("#popup-card-movie");
     let newDiv = document.createElement("div");
     let modal = body.appendChild(newDiv);
     modal.innerHTML = template.innerHTML;
-    // Put element of the fetch inside modal
     let imgDiv = modal.querySelector(".images-movie");
     let newImg = document.createElement("img")
     let modalImg = imgDiv.appendChild(newImg)
@@ -297,12 +298,18 @@ let closePopup = () => {
   let crossDiv = document.querySelector(".cross-movie")
   let cross = crossDiv.children[0]
   let modal = document.querySelector(".popup-movie");
+  let body = document.querySelector("body");
   document.addEventListener("click", (e) => {
     if (e.target == cross) {
       modal.remove()
     } else if (e.target.matches(".popup-movie")) {
       modal.remove()
     }
+
+  })
+  crossDiv.addEventListener('click', () => {
+    modal.remove()
+    body.style.overflowY = "scroll";
   })
 }
 
@@ -432,4 +439,24 @@ document.addEventListener("DOMContentLoaded", () => {
       fetchBySearch(searchingBar.value)
     }
   })
+});
+
+
+function showLandscapeAlert() {
+  alert("BeMovies is not optimized for landscape mode. Please rotate your device to portrait mode.");
+}
+
+
+window.addEventListener('orientationchange', function () {
+  if (window.orientation === 90 || window.orientation === -90) {
+    showLandscapeAlert();
+  }
+});
+
+window.addEventListener('load', function () {
+
+  if (window.orientation === 90 || window.orientation === -90) {
+
+    showLandscapeAlert();
+  }
 });
