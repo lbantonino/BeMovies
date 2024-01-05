@@ -11,8 +11,9 @@ For this project we worked in collaboration with @qmorineau (https://github.com/
 Here's the link to BeMovies: 
 https://lbantonino.github.io/BeMovies/
 
-
-Here are some images of the project :
+- 📫 MAIL:  **antonino.lobianco@outlook.com**
+  
+##### Here are some demos...
 
 -----
 <br>
