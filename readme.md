@@ -8,10 +8,20 @@ The aim of this application was to retrieve data from the TMDB api (movie api) a
 
 For this project we worked in collaboration with @qmorineau (https://github.com/qmorineau). The work was divided into two parts.  @qmorineau worked on the javascript part of my html, and I did the javascript part of his html. 
 
-Here's the link to BeMovies: 
-https://lbantonino.github.io/BeMovies/
 
-- 📫 MAIL:  **antonino.lobianco@outlook.com**
+ <br>
+
+🔗 **BEMOVIES** : **[https://lbantonino.github.io/A-Studio/](https://lbantonino.github.io/BeMovies/)**
+
+✉️ MAIL:  **antonino.lobianco@outlook.com**
+  
+🟦 LINKEDIN : **https://www.linkedin.com/in/antonino-lo-bianco-605765188/**
+
+⬛️ DEV : **[https://www.linkedin.com/in/antonino-lo-bianco-605765188/](https://dev.to/lbantonino)**
+
+💻 PORTFOLIO: **https://lbantonino.vercel.app/**
+
+<br>
   
 ##### Here are some demos...
 
