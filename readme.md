@@ -11,7 +11,7 @@ For this project we worked in collaboration with @qmorineau (https://github.com/
 
  <br>
 
-🔗 **BEMOVIES** : **[https://lbantonino.github.io/A-Studio/](https://lbantonino.github.io/BeMovies/)**
+🔗 **BEMOVIES** : **https://lbantonino.github.io/BeMovies/**
 
 ✉️ MAIL:  **antonino.lobianco@outlook.com**
   
